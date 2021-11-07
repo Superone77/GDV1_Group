@@ -12,6 +12,7 @@
 #include <iostream>
 #include <fstream>
 #include <cfloat>
+#include <math.h>
 
 #include <QOpenGLContext>
 #include <QOpenGLFunctions_2_1>
@@ -76,12 +77,38 @@ void TriangleMesh::loadLSA(const char* filename) {
   // read vertices
   vertices.resize(nv);
   // TODO: read alpha, beta, gamma for each vertex and calculate verticex coordinates
+  for (auto &vert: vertices){
+  	float alpha, beta, gamma;
+  	in >> alpha;
+  	in >> beta;
+  	in >> gamma;
+  	
+  	float x, y, z;
+  	z = -1 * baseline / ( tan(alpha) + tan(beta) );
+  	x = -1 * z * tan(beta);
+  	y = sqrt(x * x + z * z) * tan(gamma);
+  	
+  	vert[0] = x;
+	vert[1] = y;
+	vert[2] = z;
+  }
 
 
   // read triangles
   triangles.resize(nf);
   // TODO: read all triangles from the file
+	for (auto &tri : triangles) {
+      int numVerts, a, b, c;
 
+      in >> numVerts; // ignored
+      in >> a;
+      in >> b;
+      in >> c;
+
+      tri[0] = a;
+      tri[1] = b;
+      tri[2] = c;
+  }
   // calculate normals
   calculateNormals();
 }
@@ -106,11 +133,11 @@ void TriangleMesh::loadOFF(const char* filename) {
   // read vertices
   vertices.resize(nv);
   // TODO: read all vertices from the file
-  for(auto &vert:vertices){
+  for (auto &vert: vertices){
       float x,y,z;
-      in>>x;
-      in>>y;
-      in>>y;
+      in >> x;
+      in >> y;
+      in >> y;
 
       vert[0] = x;
       vert[1] = y;
