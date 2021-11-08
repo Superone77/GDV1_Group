@@ -37,6 +37,7 @@ int main(int argc, char *argv[])
     w.setFormat(format);
     w.setTitle(QStringLiteral("TU Darmstadt, GDV1, OpenGL P1"));
     w.show();
+    
 
     return a.exec();
 }

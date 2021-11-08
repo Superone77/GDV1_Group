@@ -14,6 +14,12 @@
 #include <cfloat>
 #include <math.h>
 
+#include <GL/gl.h>
+
+#include <GL/glu.h>
+
+#include <GL/glut.h>
+
 #include <QOpenGLContext>
 #include <QOpenGLFunctions_2_1>
 
@@ -84,13 +90,14 @@ void TriangleMesh::loadLSA(const char* filename) {
   	in >> gamma;
   	
   	float x, y, z;
-  	z = -1 * baseline / ( tan(alpha) + tan(beta) );
-  	x = -1 * z * tan(beta);
-  	y = sqrt(x * x + z * z) * tan(gamma);
+  	z = -1 * baseline / ( tan(alpha*PI/180) + tan(beta*PI/180) );
+  	x = -1 * z * tan(beta*PI/180);
+  	y = sqrt(x * x + z * z) * tan(gamma*PI/180);
   	
   	vert[0] = x;
 	vert[1] = y;
 	vert[2] = z;
+	
   }
 
 
@@ -137,11 +144,13 @@ void TriangleMesh::loadOFF(const char* filename) {
       float x,y,z;
       in >> x;
       in >> y;
-      in >> y;
+      in >> z;
 
       vert[0] = x;
       vert[1] = y;
       vert[2] = z;
+
+     
   }
 
   // read triangles
@@ -169,9 +178,40 @@ void TriangleMesh::loadOFF(const char* filename) {
 // ==============
 
 void TriangleMesh::draw() {
-  if (triangles.size() == 0) return;
+  if (triangles.size() == 0){
+   return;
+  }
   auto* f = QOpenGLContext::currentContext()->versionFunctions<QOpenGLFunctions_2_1>();
 
-  // TODO: draw triangles with immediate mode
+  // TODO: draw triangles with immediate mode 
+  for (auto &tri : triangles) {
+
+	f->glBegin(GL_TRIANGLES);
+		f->glVertex3f( vertices[tri[0]][0], vertices[tri[0]][1], vertices[tri[0]][2]);          
+		f->glVertex3f(vertices[tri[1]][0], vertices[tri[1]][1], vertices[tri[1]][2]);           
+		f->glVertex3f( vertices[tri[2]][0], vertices[tri[2]][1], vertices[tri[2]][2]);  
+	f->glEnd(); 
+ }
+
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
