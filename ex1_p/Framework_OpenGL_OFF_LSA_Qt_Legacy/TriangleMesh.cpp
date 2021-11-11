@@ -24,11 +24,31 @@ void TriangleMesh::calculateNormals() {
   normals.resize(vertices.size());
   // TODO: calculate normals for each vertex
 
+  for(auto& tri = triangles){
+      //get vertices from each triangle
+      Vec3f vert1 = vertices[tri[0]];
+      Vec3f vert2 = vertices[tri[1]];
+      Vec3f vert3 = vertices[tri[2]];
+      //calculate edge vectors
+      Vec3f kVector12 = vert1 - vert2;
+      Vec3f kVector13 = vert1 - vert3;
+      //cross product->normal vector
+      Vec3f normal = cross(kVector12,kVector13);
+      //normal vector in each vertex add up
+      normals[tri[0]] += normal;
+      normals[tri[1]] += normal;
+      normals[tri[2]] += normal;
+  }
+
   for (auto& normal : normals) {
       //the normalize() function returns a boolean which can be used if you want to check for erroneous normals
       normal.normalize();
   }
 }
+/*
+ * 4a) Answer: Because the magnitude of the cross product equals the area of a parallelogram with the vectors for sides.
+ * which means. double area of the triangles.
+ */
 
 // ================
 // === RAW DATA ===
