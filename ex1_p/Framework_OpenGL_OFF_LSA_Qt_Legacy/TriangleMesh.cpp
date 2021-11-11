@@ -24,7 +24,7 @@ void TriangleMesh::calculateNormals() {
   normals.resize(vertices.size());
   // TODO: calculate normals for each vertex
 
-  for(auto& tri = triangles){
+  for(auto& tri : triangles){
       //get vertices from each triangle
       Vec3f vert1 = vertices[tri[0]];
       Vec3f vert2 = vertices[tri[1]];
@@ -49,6 +49,15 @@ void TriangleMesh::calculateNormals() {
  * 4a) Answer: Because the magnitude of the cross product equals the area of a parallelogram with the vectors for sides.
  * which means. double area of the triangles.
  */
+void TriangleMesh::calculateNormals2() {
+    normals.clear();
+    normals.resize(vertices.size());
+    // TODO: calculate normals for each vertex
+
+    //for(auto& tri = triangles){
+
+    //}
+}
 
 // ================
 // === RAW DATA ===
@@ -201,8 +210,13 @@ void TriangleMesh::draw() {
   for (auto &tri : triangles) {
 
 	f->glBegin(GL_TRIANGLES);
+        f->glNormal3f(normals[tri[0]][0], normals[tri[0]][1], normals[tri[0]][2]);
 		f->glVertex3f( vertices[tri[0]][0], vertices[tri[0]][1], vertices[tri[0]][2]);
+
+        f->glNormal3f(normals[tri[1]][0], normals[tri[1]][1], normals[tri[1]][2]);
 		f->glVertex3f(vertices[tri[1]][0], vertices[tri[1]][1], vertices[tri[1]][2]);
+
+        f->glNormal3f(normals[tri[2]][0], normals[tri[2]][1], normals[tri[2]][2]);
 		f->glVertex3f( vertices[tri[2]][0], vertices[tri[2]][1], vertices[tri[2]][2]);
 	f->glEnd();
  }

@@ -40,6 +40,7 @@ private:
 
   // private methods
   void calculateNormals();
+  void calculateNormals2();
 
 public:
 

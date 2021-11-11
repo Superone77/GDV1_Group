@@ -36,7 +36,7 @@ MainWindow::MainWindow(QWindow *parent)
     setDefaults();
 
     //Load ballon mesh
-    triMesh.loadOFF("../Modelle/ballon.lsa");
+    triMesh.loadLSA("../Modelle/delphin.lsa");
 
     //Load the sphere of the light
     sphereMesh.loadOFF("../Modelle/sphere.off");
