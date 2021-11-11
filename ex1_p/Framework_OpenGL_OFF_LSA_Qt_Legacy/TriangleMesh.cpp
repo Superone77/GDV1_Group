@@ -14,12 +14,6 @@
 #include <cfloat>
 #include <math.h>
 
-#include <GL/gl.h>
-
-#include <GL/glu.h>
-
-#include <GL/glut.h>
-
 #include <QOpenGLContext>
 #include <QOpenGLFunctions_2_1>
 
@@ -187,10 +181,10 @@ void TriangleMesh::draw() {
   for (auto &tri : triangles) {
 
 	f->glBegin(GL_TRIANGLES);
-		f->glVertex3f( vertices[tri[0]][0], vertices[tri[0]][1], vertices[tri[0]][2]);          
-		f->glVertex3f(vertices[tri[1]][0], vertices[tri[1]][1], vertices[tri[1]][2]);           
-		f->glVertex3f( vertices[tri[2]][0], vertices[tri[2]][1], vertices[tri[2]][2]);  
-	f->glEnd(); 
+		f->glVertex3f( vertices[tri[0]][0], vertices[tri[0]][1], vertices[tri[0]][2]);
+		f->glVertex3f(vertices[tri[1]][0], vertices[tri[1]][1], vertices[tri[1]][2]);
+		f->glVertex3f( vertices[tri[2]][0], vertices[tri[2]][1], vertices[tri[2]][2]);
+	f->glEnd();
  }
 
 
