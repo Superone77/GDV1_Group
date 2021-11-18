@@ -49,14 +49,39 @@ void TriangleMesh::calculateNormals() {
  * 4a) Answer: Because the magnitude of the cross product equals the area of a parallelogram with the vectors for sides.
  * which means. double area of the triangles.
  */
-void TriangleMesh::calculateNormals2() {
+void TriangleMesh::calculateNormals_1() {
     normals.clear();
     normals.resize(vertices.size());
     // TODO: calculate normals for each vertex
 
-    //for(auto& tri = triangles){
+    for(auto& tri : triangles){
+        //get vertices from each triangle
+        Vec3f vert1 = vertices[tri[0]];
+        Vec3f vert2 = vertices[tri[1]];
+        Vec3f vert3 = vertices[tri[2]];
+        //calculate edge vectors
+        Vec3f kVector12 = vert1 - vert2;
+        Vec3f kVector13 = vert1 - vert3;
+        //cross product->normal vector
+        Vec3f normal = cross(kVector12,kVector13);
+        //norm of 2 edge vectors
+        float module12 = sqrt(pow(kVector12.x(),2)+ pow(kVector12.y(),2)+pow(kVector12.z(),2));
+        float module13 = sqrt(pow(kVector13.x(),2)+ pow(kVector13.y(),2)+pow(kVector13.z(),2));
 
-    //}
+        //acos scalar product of edge vector
+        float scalarProduct = kVector13.x()*kVector12.x()+kVector13.y()*kVector12.y()+kVector13.z()*kVector12.z();
+        //calculate the weight:
+        float weight = acos(scalarProduct/(module12*module13));
+        //normal vector in each vertex add up
+        normals[tri[0]] += normal * weight;
+        normals[tri[1]] += normal * weight;
+        normals[tri[2]] += normal * weight;
+    }
+
+    for (auto& normal : normals) {
+        //the normalize() function returns a boolean which can be used if you want to check for erroneous normals
+        normal.normalize();
+    }
 }
 
 // ================
@@ -141,6 +166,7 @@ void TriangleMesh::loadLSA(const char* filename) {
   }
   // calculate normals
   calculateNormals();
+  //calculateNormals_1();
 }
 
 void TriangleMesh::loadOFF(const char* filename) {
