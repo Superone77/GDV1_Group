@@ -63,7 +63,7 @@ public:
   // =================
 
   // read from an LSA file. also calculates normals.
-  void loadLSA(const char* filename);
+  void loadLSA(const char* filename, float offset_x, float offset_y, float offset_z);
 
   // read from an OFF file. also calculates normals.
   void loadOFF(const char* filename);

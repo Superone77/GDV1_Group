@@ -39,7 +39,10 @@ class MainWindow : public QOpenGLWindow
     float mouseSensitivy;
 
     //rendered objects
-    TriangleMesh triMesh;
+    TriangleMesh triMesh_1;
+    TriangleMesh triMesh_2;
+    TriangleMesh triMesh_3;
+    TriangleMesh triMesh_4;
     TriangleMesh sphereMesh;
 
     //timer for moving light

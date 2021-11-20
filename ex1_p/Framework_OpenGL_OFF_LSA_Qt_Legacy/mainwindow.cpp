@@ -35,10 +35,13 @@ MainWindow::MainWindow(QWindow *parent)
 {
     setDefaults();
 
-    //Load ballon mesh
-    triMesh.loadLSA("../Modelle/delphin.lsa");
+    // Load multi-mesh, after trying, we found we can display all the meshes smoothly
+    triMesh_1.loadLSA("../Modelle/delphin.lsa", 0, 0, 0);   
+    triMesh_2.loadLSA("../Modelle/ballon.lsa", 5, 0, 0);
+    triMesh_3.loadLSA("../Modelle/83ford-gt90.lsa", 0, 5, 0);
+    triMesh_4.loadLSA("../Modelle/brach.lsa", 0, 0, 8);
 
-    //Load the sphere of the light
+    // Load the sphere of the light
     sphereMesh.loadOFF("../Modelle/sphere.off");
 }
 
@@ -75,7 +78,10 @@ void MainWindow::paintGL()
     // draw object
     f->glEnable(GL_LIGHTING);
     f->glColor3f(1.f,0.1f,0.1f);
-    triMesh.draw();
+    triMesh_1.draw();
+    triMesh_2.draw();
+    triMesh_3.draw();
+    triMesh_4.draw();
 }
 
 // =================

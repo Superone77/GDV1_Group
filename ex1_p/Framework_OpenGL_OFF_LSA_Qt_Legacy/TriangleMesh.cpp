@@ -109,7 +109,7 @@ void TriangleMesh::flipNormals() {
 // === LOAD MESH ===
 // =================
 
-void TriangleMesh::loadLSA(const char* filename) {
+void TriangleMesh::loadLSA(const char* filename, float offset_x, float offset_y, float offset_z) {
   std::ifstream in(filename);
   if (!in.is_open()) {
     cout << "loadLSA: can not open " << filename << endl;
@@ -141,6 +141,9 @@ void TriangleMesh::loadLSA(const char* filename) {
   	z = -1 * baseline / ( tan(alpha*PI/180) + tan(beta*PI/180) );
   	x = -1 * z * tan(beta*PI/180);
   	y = sqrt(x * x + z * z) * tan(gamma*PI/180);
+  	x = x + offset_x;
+  	y = y + offset_y;
+  	z = z + offset_z;
   	
   	vert[0] = x;
 	vert[1] = y;
