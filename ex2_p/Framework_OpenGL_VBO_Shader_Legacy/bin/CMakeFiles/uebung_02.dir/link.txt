@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/uebung_02.dir/main.cpp.o CMakeFiles/uebung_02.dir/mainwindow.cpp.o CMakeFiles/uebung_02.dir/TriangleMesh.cpp.o CMakeFiles/uebung_02.dir/uebung_02_autogen/mocs_compilation.cpp.o  -o uebung_02 /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.9.5 /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.9.5 

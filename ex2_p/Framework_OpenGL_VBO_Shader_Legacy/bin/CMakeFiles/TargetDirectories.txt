@@ -1,0 +1,4 @@
+/home/daniel/Dokumente/gdv1-ws2021/Uebung/Framework_OpenGL_VBO_Shader_Legacy/bin/CMakeFiles/rebuild_cache.dir
+/home/daniel/Dokumente/gdv1-ws2021/Uebung/Framework_OpenGL_VBO_Shader_Legacy/bin/CMakeFiles/uebung_02.dir
+/home/daniel/Dokumente/gdv1-ws2021/Uebung/Framework_OpenGL_VBO_Shader_Legacy/bin/CMakeFiles/edit_cache.dir
+/home/daniel/Dokumente/gdv1-ws2021/Uebung/Framework_OpenGL_VBO_Shader_Legacy/bin/CMakeFiles/uebung_02_autogen.dir
