@@ -344,7 +344,7 @@ void MainWindow::setDefaults() {
     lightMotionSpeed = 2.0f;
     // mouse information
     mouseSensitivy = 1.0f;
-    currentRenderMode = RENDER_MODE_IMMEDIATE;
+    currentRenderMode = RENDER_MODE_ARRAY;
     outputFPS = true;
     gridSize = 3;
 }

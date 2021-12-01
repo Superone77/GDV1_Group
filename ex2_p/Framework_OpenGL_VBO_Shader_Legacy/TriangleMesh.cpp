@@ -232,6 +232,31 @@ void TriangleMesh::drawImmediate() {
 void TriangleMesh::drawArray() {
 	if (triangles.empty()) return;
 	// TODO: draw in array mode
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_NORMAL_ARRAY);
+//    glVertexPointer(GLint size, GLenum type, GLsizei stride, const GLvoid* pointer) -> specify pointer to vertex coords array
+//        size: The number of vertex coordinates, 2 for 2D points, 3 for 3D points.
+//        type: GL_FLOAT, GL_SHORT, GL_INT or GL_DOUBLE.
+//        stride: The number of bytes to offset to the next vertex (used for interleaved array).
+//        pointer: The pointer to the vertex array.
+    glVertexPointer(3,GL_FLOAT,0,&vertices[0]);
+//    glNormalPointer(GLenum type, GLsizei stride, const GLvoid* pointer) -> specify pointer to normal array
+//        type: GL_FLOAT, GL_SHORT, GL_INT or GL_DOUBLE.
+//        stride: The number of bytes to offset to the next normal (used for interleaved array).
+//        pointer: The pointer to the vertex array.
+    glNormalPointer(GL_FLOAT,0,&normals[0]);
+    //glDrawElements() glDrawElements() draws a sequence of primitives by hopping around vertex arrays with the associated array indices.
+    // It requires 4 parameters.
+    // The first one is the type of primitive,
+    // the second is the number of indices of index array,
+    // the third is data type of index array and
+    // the last parameter is the address of index array.
+    glDrawElements(GL_TRIANGLES,triangles.size()*3, GL_UNSIGNED_INT, &triangles[0]);
+
+    glDisableClientState(GL_VERTEX_ARRAY);
+    glDisableClientState(GL_NORMAL_ARRAY);
+
+
 }
 
 void TriangleMesh::drawVBO() {

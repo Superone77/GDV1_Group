@@ -1,0 +1,10 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy
+-- The CXX compiler identification is AppleClang 11.0.3.11030032
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /Library/Developer/CommandLineTools/usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug

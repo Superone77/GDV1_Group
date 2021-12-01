@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="uebung_02"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\..\opt\;CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\;CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\;CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\;CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5\;CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\;CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5Core\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="uebung_02">
+				<Option output="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/uebung_02" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add directory="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/uebung_02_autogen/include"/>
+					<Add directory="/opt/anaconda3/include/qt"/>
+					<Add directory="/opt/anaconda3/include/qt/QtCore"/>
+					<Add directory="/opt/anaconda3/./mkspecs/macx-clang"/>
+					<Add directory="/opt/anaconda3/include/qt/QtGui"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/Makefile&quot;  VERBOSE=1 uebung_02"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="uebung_02/fast">
+				<Option output="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/uebung_02" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add directory="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/uebung_02_autogen/include"/>
+					<Add directory="/opt/anaconda3/include/qt"/>
+					<Add directory="/opt/anaconda3/include/qt/QtCore"/>
+					<Add directory="/opt/anaconda3/./mkspecs/macx-clang"/>
+					<Add directory="/opt/anaconda3/include/qt/QtGui"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/Makefile&quot;  VERBOSE=1 uebung_02/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="uebung_02_autogen">
+				<Option working_dir="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/Makefile&quot;  VERBOSE=1 uebung_02_autogen"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/TriangleMesh.cpp">
+			<Option target="uebung_02"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/TriangleMesh.h">
+			<Option target="uebung_02"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/Vec3.h">
+			<Option target="uebung_02"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/uebung_02_autogen/mocs_compilation.cpp">
+			<Option target="uebung_02"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/main.cpp">
+			<Option target="uebung_02"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/mainwindow.cpp">
+			<Option target="uebung_02"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/mainwindow.h">
+			<Option target="uebung_02"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/shader.h">
+			<Option target="uebung_02"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/../../../../../../../../opt/anaconda3/lib/cmake/Qt5/Qt5Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/../../../../../../../../opt/anaconda3/lib/cmake/Qt5/Qt5ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/../../../../../../../../opt/anaconda3/lib/cmake/Qt5/Qt5ModuleLocation.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/../../../../../../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5GuiConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/../../../../../../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/../../../../../../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/../../../../../../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QCocoaIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/../../../../../../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/../../../../../../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QICNSPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/../../../../../../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/../../../../../../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/../../../../../../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QMacJp2Plugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/../../../../../../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QMinimalIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/../../../../../../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QOffscreenIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/../../../../../../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QTgaPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/../../../../../../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QTiffPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/../../../../../../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/../../../../../../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QVirtualKeyboardPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/../../../../../../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QWbmpPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/../../../../../../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QWebpPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/../../../../../../../../opt/anaconda3/lib/cmake/Qt5Core/Qt5CoreConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/../../../../../../../../opt/anaconda3/lib/cmake/Qt5Core/Qt5CoreConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/../../../../../../../../opt/anaconda3/lib/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/../../../../../../../../opt/anaconda3/lib/cmake/Qt5Core/Qt5CoreConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/../../../../../../../../opt/anaconda3/lib/cmake/Qt5Core/Qt5CoreMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\opt\anaconda3\lib\cmake\Qt5Core\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

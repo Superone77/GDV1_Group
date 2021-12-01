@@ -1,0 +1,4 @@
+/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/CMakeFiles/uebung_02.dir
+/Users/superone77/Downloads/W21:22/GDV1/git/ex2_p/Framework_OpenGL_VBO_Shader_Legacy/cmake-build-debug/CMakeFiles/uebung_02_autogen.dir
