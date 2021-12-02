@@ -17,7 +17,7 @@
 #include <iomanip>
 #include <fstream>
 #include <cfloat>
-
+#define GL_SILENCE_DEPRECATION
 #include <QOpenGLFunctions_2_1>
 
 #include "TriangleMesh.h"
@@ -54,6 +54,24 @@ void TriangleMesh::calculateNormals() {
 
 void TriangleMesh::createAllVBOs() {
 	// TODO: create VBOs
+    // generate new VBOs and get the associated ID
+    glGenBuffers(1, &VBOv);
+    glGenBuffers(1,&VBOn);
+    glGenBuffers(1, &VBOf);
+    // bind VBO in order to use
+    glBindBuffer(GL_ARRAY_BUFFER,VBOv);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBOf);
+    //copy data to VBO
+    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*vertices.size() * 3 * 2, 0, GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLint)*triangles.size() * 3, &triangles[0], GL_STATIC_DRAW);
+    glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(GLfloat)*vertices.size() * 3, &vertices[0]);
+    glBufferSubData(GL_ARRAY_BUFFER, sizeof(GLfloat)*vertices.size() * 3, sizeof(GLfloat)*normals.size() * 3, &normals[0]);
+
+    //set buffer to 0
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+
+
 }
 
 TriangleMesh::~TriangleMesh()
@@ -234,6 +252,7 @@ void TriangleMesh::drawArray() {
 	// TODO: draw in array mode
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_NORMAL_ARRAY);
+
 //    glVertexPointer(GLint size, GLenum type, GLsizei stride, const GLvoid* pointer) -> specify pointer to vertex coords array
 //        size: The number of vertex coordinates, 2 for 2D points, 3 for 3D points.
 //        type: GL_FLOAT, GL_SHORT, GL_INT or GL_DOUBLE.
@@ -257,10 +276,36 @@ void TriangleMesh::drawArray() {
     glDisableClientState(GL_NORMAL_ARRAY);
 
 
+
+
+
 }
 
 void TriangleMesh::drawVBO() {
 	if (triangles.empty()) return;
 	if (VBOv == 0 || VBOn == 0 || VBOf == 0) return;
 	// TODO: draw in VBO mode
+    // bind VBOs for vertex array and normal array
+    glBindBuffer(GL_ARRAY_BUFFER,VBOv);
+    // bind VBOs for face
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBOf);
+
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_NORMAL_ARRAY);
+
+    //get vertex from 0 index in buffer
+    glVertexPointer(3, GL_FLOAT, 0, 0);
+    //get vertex from offset in buffer
+    size_t offset = sizeof(GLfloat)*vertices.size() * 3;
+    glNormalPointer(GL_FLOAT,0,(void*)offset);
+    //draw from element-array-buffer
+    glDrawElements(GL_TRIANGLES,triangles.size()*3, GL_UNSIGNED_INT, 0);
+
+    glDisableClientState(GL_VERTEX_ARRAY);
+    glDisableClientState(GL_NORMAL_ARRAY);
+
+    //set buffer to 0
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+
 }
