@@ -33,8 +33,8 @@ IF(WIN32)
             COMMAND "${CMAKE_COMMAND}" -E env PATH="${_qt_bin_dir}" "${WINDEPLOYQT_EXECUTABLE}" "$<TARGET_FILE:uebung_02>"
             COMMENT "Deploying Qt library files...")
 ELSEIF(APPLE)
-    target_link_libraries(${PROJECT_NAME} "-framework OpenGL")
-    target_link_libraries(${PROJECT_NAME} "-framework GLUT")
+    #target_link_libraries(${PROJECT_NAME} "-framework OpenGL")
+    #target_link_libraries(${PROJECT_NAME} "-framework GLUT")
     find_program(MACDEPLOYQT_EXECUTABLE macdeployqt HINTS "${_qt_bin_dir}")
     add_custom_command(TARGET uebung_02 POST_BUILD
             COMMAND "${MACDEPLOYQT_EXECUTABLE}" "$<TARGET_FILE:uebung_02>"

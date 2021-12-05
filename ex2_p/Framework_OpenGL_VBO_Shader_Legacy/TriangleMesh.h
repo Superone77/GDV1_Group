@@ -113,11 +113,11 @@ public:
   // =================
 
   // read from an OFF file. also calculates normals if not given in the file.
-  void loadOFF(QOpenGLFunctions_2_1* f, const char* filename);
+  void loadOFF(QOpenGLFunctions_2_1* f, const char* filename, float offset_x, float offset_y, float offset_z);
 
   // read from an OFF file. also calculates normals if not given in the file.
   // translates and scales vertices with bounding box center at BBmid and largest side BBlength
-  void loadOFF(QOpenGLFunctions_2_1* f, const char* filename, const Vec3f& BBmid, float BBlength);
+  void loadOFF(QOpenGLFunctions_2_1* f, const char* filename, const Vec3f& BBmid, float BBlength, float offset_x, float offset_y, float offset_z);
 
   // ==============
   // === RENDER ===
