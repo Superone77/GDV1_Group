@@ -56,17 +56,14 @@ void MainWindow::initializeGL()
     std::cout << "The current OpenGL version is: " << versionString << std::endl;
 
     // load shaders
-    //GLuint programID = readShaders(f, "../Shader/FlatGreyShader.vert", "../Shader/FlatGreyShader.frag");
-    GLuint programID = readShaders(f, "../Shader/ToonShader.vert", "../Shader/ToonShader.frag");
+    GLuint programID = readShaders(f, "../Shader/FlatGreyShader.vert", "../Shader/FlatGreyShader.frag");
+    if (programID != 0) programIDs.push_back(programID);
+    programID = readShaders(f, "../Shader/ToonShader.vert", "../Shader/ToonShader.frag");
     if (programID != 0) programIDs.push_back(programID);
     std::cout << programIDs.size() << " shaders loaded. Use keys 1 (for flat shading) to " << programIDs.size() + 2 << "." << std::endl;
 
     //Load ballon mesh
     triMesh.loadOFF(f, "../Models/Sketched-Teddy-org.off", 0, 0, 0);
-    triMesh_1.loadOFF(f, "../Models/Sketched-Teddy-org.off", 0, 0, 8);
-    triMesh_2.loadOFF(f, "../Models/Sketched-Teddy-org.off", 0, 0, 16);
-    triMesh_3.loadOFF(f, "../Models/Sketched-Teddy-org.off", 0, 0, -8);
-    triMesh_4.loadOFF(f, "../Models/Sketched-Teddy-org.off", 0, 0, -16);
 
 	// ============================================ //
 	// Aufgabe3                                     //
@@ -120,24 +117,12 @@ void MainWindow::paintGL()
             switch (currentRenderMode) {
             case RENDER_MODE_ARRAY:
                 triMesh.drawArray();
-                triMesh_1.drawArray();
-                triMesh_2.drawArray();
-                triMesh_3.drawArray();
-                triMesh_4.drawArray();
                 break;
             case RENDER_MODE_VBO:
                 triMesh.drawVBO();
-                triMesh_1.drawVBO();
-                triMesh_2.drawVBO();
-                triMesh_3.drawVBO();
-                triMesh_4.drawVBO();
                 break;
             default:
                 triMesh.drawImmediate();
-                triMesh_1.drawImmediate();
-                triMesh_2.drawImmediate();
-                triMesh_3.drawImmediate();
-                triMesh_4.drawImmediate();
                 break;
             }
             f->glPopMatrix();
