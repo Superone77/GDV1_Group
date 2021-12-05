@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
     format.setDepthBufferSize(24);
 
     MainWindow w;
+    //w.setDefaults();
     w.setWidth(600);
     w.setHeight(400);
     w.setFormat(format);

@@ -17,10 +17,19 @@
 #include <iomanip>
 #include <fstream>
 #include <cfloat>
+#include <ctime>
 #define GL_SILENCE_DEPRECATION
 #include <QOpenGLFunctions_2_1>
 
 #include "TriangleMesh.h"
+
+
+// ============================================ //
+// Aufgabe3                                     //
+// Time of VBO: 			e^-5s ~ e^-6s       //
+// Time of Vertex Array: 	4*e^-4s ~ e^-3s     //
+// Time of Immediate: 		e^-2s ~ 2*e^-2s     //
+// ============================================ //
 
 // =========================
 // === PRIVATE FUNCTIONS ===
@@ -55,21 +64,21 @@ void TriangleMesh::calculateNormals() {
 void TriangleMesh::createAllVBOs() {
 	// TODO: create VBOs
     // generate new VBOs and get the associated ID
-    glGenBuffers(1, &VBOv);
-    glGenBuffers(1,&VBOn);
-    glGenBuffers(1, &VBOf);
+    f->glGenBuffers(1, &VBOv);
+    f->glGenBuffers(1,&VBOn);
+    f->glGenBuffers(1, &VBOf);
     // bind VBO in order to use
-    glBindBuffer(GL_ARRAY_BUFFER,VBOv);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBOf);
+    f->glBindBuffer(GL_ARRAY_BUFFER,VBOv);
+    f->glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBOf);
     //copy data to VBO
-    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*vertices.size() * 3 * 2, 0, GL_STATIC_DRAW);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLint)*triangles.size() * 3, &triangles[0], GL_STATIC_DRAW);
-    glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(GLfloat)*vertices.size() * 3, &vertices[0]);
-    glBufferSubData(GL_ARRAY_BUFFER, sizeof(GLfloat)*vertices.size() * 3, sizeof(GLfloat)*normals.size() * 3, &normals[0]);
+    f->glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*vertices.size() * 3 * 2, 0, GL_STATIC_DRAW);
+    f->glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLint)*triangles.size() * 3, &triangles[0], GL_STATIC_DRAW);
+    f->glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(GLfloat)*vertices.size() * 3, &vertices[0]);
+    f->glBufferSubData(GL_ARRAY_BUFFER, sizeof(GLfloat)*vertices.size() * 3, sizeof(GLfloat)*normals.size() * 3, &normals[0]);
 
-    //set buffer to 0
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+    // Binding the buffer object with 0, switchs off VBO operation. It is a good idea to turn VBO off after use, so normal vertex array operations with absolute pointers will be re-activated.
+    f->glBindBuffer(GL_ARRAY_BUFFER, 0);
+    f->glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
 
 }
@@ -149,7 +158,7 @@ void TriangleMesh::scaleToLength(const float newLength) {
 // === LOAD MESH ===
 // =================
 
-void TriangleMesh::loadOFF(QOpenGLFunctions_2_1* f, const char* filename) {
+void TriangleMesh::loadOFF(QOpenGLFunctions_2_1* f, const char* filename, float offset_x, float offset_y, float offset_z) {
     this->f = f;
 	std::ifstream in(filename);
 	if (!in.is_open()) {
@@ -179,8 +188,12 @@ void TriangleMesh::loadOFF(QOpenGLFunctions_2_1* f, const char* filename) {
 	vertices.resize(nv);
 	for (int i = 0; i < nv; ++i) {
 		in >> std::setw(MAX) >> vertices[i][0];
+		vertices[i][0] = vertices[i][0] + offset_x;
 		in >> std::setw(MAX) >> vertices[i][1];
+		vertices[i][1] = vertices[i][1] + offset_y;
 		in >> std::setw(MAX) >> vertices[i][2];
+		vertices[i][2] = vertices[i][2] + offset_z;
+		
 		boundingBoxMin[0] = std::min(vertices[i][0], boundingBoxMin[0]);
 		boundingBoxMin[1] = std::min(vertices[i][1], boundingBoxMin[1]);
 		boundingBoxMin[2] = std::min(vertices[i][2], boundingBoxMin[2]);
@@ -212,8 +225,8 @@ void TriangleMesh::loadOFF(QOpenGLFunctions_2_1* f, const char* filename) {
 	createAllVBOs();
 }
 
-void TriangleMesh::loadOFF(QOpenGLFunctions_2_1* f, const char* filename, const Vec3f& BBmid, const float BBlength) {
-	loadOFF(f, filename);
+void TriangleMesh::loadOFF(QOpenGLFunctions_2_1* f, const char* filename, const Vec3f& BBmid, const float BBlength, float offset_x, float offset_y, float offset_z) {
+	loadOFF(f, filename, offset_x, offset_y, offset_z);
 	translateToCenter(BBmid);
 	scaleToLength(BBlength);
 }
@@ -225,6 +238,7 @@ void TriangleMesh::loadOFF(QOpenGLFunctions_2_1* f, const char* filename, const 
 void TriangleMesh::drawImmediate() {
     if (triangles.empty()) return;
 
+	const clock_t begin_time = clock();
     f->glBegin(GL_TRIANGLES);
     for (const auto& face : triangles) {
         const auto& vertex1 = vertices[face[0]];
@@ -245,39 +259,45 @@ void TriangleMesh::drawImmediate() {
         f->glVertex3f(vertex3.x(), vertex3.y(), vertex3.z());
     }
     f->glEnd();
+    std::cout << "Current time interval of immediate mode: " << float( clock () - begin_time ) /  CLOCKS_PER_SEC << " s" << std::endl;
 }
 
 void TriangleMesh::drawArray() {
 	if (triangles.empty()) return;
 	// TODO: draw in array mode
-    glEnableClientState(GL_VERTEX_ARRAY);
-    glEnableClientState(GL_NORMAL_ARRAY);
+	const clock_t begin_time = clock();
+    f->glEnableClientState(GL_VERTEX_ARRAY);
+    f->glEnableClientState(GL_NORMAL_ARRAY);
 
-//    glVertexPointer(GLint size, GLenum type, GLsizei stride, const GLvoid* pointer) -> specify pointer to vertex coords array
-//        size: The number of vertex coordinates, 2 for 2D points, 3 for 3D points.
-//        type: GL_FLOAT, GL_SHORT, GL_INT or GL_DOUBLE.
-//        stride: The number of bytes to offset to the next vertex (used for interleaved array).
-//        pointer: The pointer to the vertex array.
-    glVertexPointer(3,GL_FLOAT,0,&vertices[0]);
-//    glNormalPointer(GLenum type, GLsizei stride, const GLvoid* pointer) -> specify pointer to normal array
-//        type: GL_FLOAT, GL_SHORT, GL_INT or GL_DOUBLE.
-//        stride: The number of bytes to offset to the next normal (used for interleaved array).
-//        pointer: The pointer to the vertex array.
-    glNormalPointer(GL_FLOAT,0,&normals[0]);
-    //glDrawElements() glDrawElements() draws a sequence of primitives by hopping around vertex arrays with the associated array indices.
-    // It requires 4 parameters.
-    // The first one is the type of primitive,
-    // the second is the number of indices of index array,
-    // the third is data type of index array and
-    // the last parameter is the address of index array.
-    glDrawElements(GL_TRIANGLES,triangles.size()*3, GL_UNSIGNED_INT, &triangles[0]);
+	/* glVertexPointer(GLint size, GLenum type, GLsizei stride, const GLvoid* pointer) -> specify pointer to vertex coords array
+	 * size: The number of vertex coordinates, 2 for 2D points, 3 for 3D points.
+	 * type: GL_FLOAT, GL_SHORT, GL_INT or GL_DOUBLE.
+	 * stride: The number of bytes to offset to the next vertex (used for interleaved array).
+	 * pointer: The pointer to the vertex array.
+	 */
 
-    glDisableClientState(GL_VERTEX_ARRAY);
-    glDisableClientState(GL_NORMAL_ARRAY);
+    f->glVertexPointer(3,GL_FLOAT,0,&vertices[0]);
+    
+	/* glNormalPointer(GLenum type, GLsizei stride, const GLvoid* pointer) -> specify pointer to normal array
+	 * type: GL_FLOAT, GL_SHORT, GL_INT or GL_DOUBLE.
+	 * stride: The number of bytes to offset to the next normal (used for interleaved array).
+	 * pointer: The pointer to the vertex array.
+	 */
 
-
-
-
+    f->glNormalPointer(GL_FLOAT,0,&normals[0]);
+    
+    /* glDrawElements() glDrawElements() draws a sequence of primitives by hopping around vertex arrays with the associated array indices.
+     * It requires 4 parameters.
+     * The first one is the type of primitive,
+     * the second is the number of indices of index array,
+     * the third is data type of index array and
+     * the last parameter is the address of index array.
+     */
+    
+    f->glDrawElements(GL_TRIANGLES,triangles.size()*3, GL_UNSIGNED_INT, &triangles[0]);
+    f->glDisableClientState(GL_VERTEX_ARRAY);
+    f->glDisableClientState(GL_NORMAL_ARRAY);
+	std::cout << "Current time interval of vertex array mode: " << float( clock () - begin_time ) /  CLOCKS_PER_SEC << " s" << std::endl;
 
 }
 
@@ -285,27 +305,29 @@ void TriangleMesh::drawVBO() {
 	if (triangles.empty()) return;
 	if (VBOv == 0 || VBOn == 0 || VBOf == 0) return;
 	// TODO: draw in VBO mode
+	const clock_t begin_time = clock();
     // bind VBOs for vertex array and normal array
-    glBindBuffer(GL_ARRAY_BUFFER,VBOv);
+    f->glBindBuffer(GL_ARRAY_BUFFER,VBOv);
     // bind VBOs for face
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBOf);
+    f->glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VBOf);
 
-    glEnableClientState(GL_VERTEX_ARRAY);
-    glEnableClientState(GL_NORMAL_ARRAY);
+    f->glEnableClientState(GL_VERTEX_ARRAY);
+    f->glEnableClientState(GL_NORMAL_ARRAY);
 
     //get vertex from 0 index in buffer
-    glVertexPointer(3, GL_FLOAT, 0, 0);
+    f->glVertexPointer(3, GL_FLOAT, 0, 0);
     //get vertex from offset in buffer
     size_t offset = sizeof(GLfloat)*vertices.size() * 3;
-    glNormalPointer(GL_FLOAT,0,(void*)offset);
+    f->glNormalPointer(GL_FLOAT,0,(void*)offset);
     //draw from element-array-buffer
-    glDrawElements(GL_TRIANGLES,triangles.size()*3, GL_UNSIGNED_INT, 0);
+    f->glDrawElements(GL_TRIANGLES,triangles.size()*3, GL_UNSIGNED_INT, 0);
 
-    glDisableClientState(GL_VERTEX_ARRAY);
-    glDisableClientState(GL_NORMAL_ARRAY);
+    f->glDisableClientState(GL_VERTEX_ARRAY);
+    f->glDisableClientState(GL_NORMAL_ARRAY);
 
     //set buffer to 0
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-
+    f->glBindBuffer(GL_ARRAY_BUFFER, 0);
+    f->glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+    std::cout << "Current time interval of VBO mode: " << float( clock () - begin_time ) /  CLOCKS_PER_SEC << " s" << std::endl;
 }
+

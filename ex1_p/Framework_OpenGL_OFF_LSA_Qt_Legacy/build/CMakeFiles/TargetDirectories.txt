@@ -1,0 +1,4 @@
+/home/hans/Desktop/GDV1/praxis_uebung/GDV1_Group/ex1_p/Framework_OpenGL_OFF_LSA_Qt_Legacy/build/CMakeFiles/rebuild_cache.dir
+/home/hans/Desktop/GDV1/praxis_uebung/GDV1_Group/ex1_p/Framework_OpenGL_OFF_LSA_Qt_Legacy/build/CMakeFiles/uebung_01.dir
+/home/hans/Desktop/GDV1/praxis_uebung/GDV1_Group/ex1_p/Framework_OpenGL_OFF_LSA_Qt_Legacy/build/CMakeFiles/edit_cache.dir
+/home/hans/Desktop/GDV1/praxis_uebung/GDV1_Group/ex1_p/Framework_OpenGL_OFF_LSA_Qt_Legacy/build/CMakeFiles/uebung_01_autogen.dir

@@ -3,13 +3,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/uebung_02_autogen.dir/ParseCache.txt"
   "uebung_02_autogen"
   "CMakeFiles/uebung_02.dir/TriangleMesh.cpp.o"
-  "CMakeFiles/uebung_02.dir/TriangleMesh.cpp.o.d"
   "CMakeFiles/uebung_02.dir/main.cpp.o"
-  "CMakeFiles/uebung_02.dir/main.cpp.o.d"
   "CMakeFiles/uebung_02.dir/mainwindow.cpp.o"
-  "CMakeFiles/uebung_02.dir/mainwindow.cpp.o.d"
   "CMakeFiles/uebung_02.dir/uebung_02_autogen/mocs_compilation.cpp.o"
-  "CMakeFiles/uebung_02.dir/uebung_02_autogen/mocs_compilation.cpp.o.d"
   "uebung_02"
   "uebung_02.pdb"
 )
