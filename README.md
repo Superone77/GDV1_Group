@@ -1,8 +1,8 @@
 ### GDV1 Exercise
 
-by:  
+Graphische Datenverarbeitung I 图形数据处理1
+
+by: 
+Wanqi Yang   
 Li Liu  
-CHEN XUE  
-Wanqi Yang     
-Heyun Yang   
-yi zhan  
+  
